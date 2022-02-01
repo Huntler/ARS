@@ -12,7 +12,7 @@ def rosenbrock(x, y, a=1, b=100) -> float:
     Returns:
         float: The calculated function value.
     """
-    return np.power((a - x), 2) + b * np.power((y - x**2), 2)
+    return (a - x)**2 + b * (y - x**2)**2
 
 
 def rastrigin(x, y) -> float:
