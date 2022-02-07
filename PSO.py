@@ -95,13 +95,16 @@ class Swarm:
                 self._group_best_x = particle.pos_x
                 self._group_best_y = particle.pos_y
 
+        for particle in self._swarm:
             # update velocity
             r_1 = np.random.rand()
             r_2 = np.random.rand()
-            new_vel_x = self._a * particle.vel_x + self._b * r_1 * (particle.p_best_x - particle.pos_x) + self._c * r_2 * (
-                self._group_best_x - particle.pos_x)
-            new_vel_y = self._a * particle.vel_y + self._b * r_1 * (particle.p_best_y - particle.pos_y) + self._c * r_2 * (
-                self._group_best_y - particle.pos_y)
+            new_vel_x = self._a * particle.vel_x + self._b * r_1 * (
+                        particle.p_best_x - particle.pos_x) + self._c * r_2 * (
+                                self._group_best_x - particle.pos_x)
+            new_vel_y = self._a * particle.vel_y + self._b * r_1 * (
+                        particle.p_best_y - particle.pos_y) + self._c * r_2 * (
+                                self._group_best_y - particle.pos_y)
 
             particle.vel_x = new_vel_x
             particle.vel_y = new_vel_y
@@ -141,6 +144,7 @@ class Swarm:
 def PSO(a, b, c, step_max, particles_num, benchmark_func, axis):
     """
     performs PSO
+    :param benchmark_func: loss function
     :param a: learning constant
     :param b: learning constant
     :param c: learning constant
