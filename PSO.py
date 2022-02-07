@@ -1,5 +1,5 @@
 import random
-import numpy
+import numpy as np
 
 
 class Particle:
@@ -57,8 +57,8 @@ def PSO(a, b, c, step_max, particles_num, benchmark_func):
                 group_best_y = particle.pos_y
 
         # update position and velocity
-        r_1 = numpy.random.seed(0)
-        r_2 = numpy.random.seed(42)
+        r_1 = np.random.rand()
+        r_2 = np.random.rand()
         new_vel_x = a * particle.vel_x + b * r_1 * (particle.p_best_x - particle.pos_x) + c * r_2 * (
                     group_best_x - particle.pos_x)
         new_vel_y = a * particle.vel_y + b * r_1 * (particle.p_best_y - particle.pos_y) + c * r_2 * (
@@ -88,8 +88,8 @@ def PSO(a, b, c, step_max, particles_num, benchmark_func):
                 group_best_y = particle.pos_y
 
                 # update position and velocity
-                r_1 = numpy.random.seed(0)
-                r_2 = numpy.random.seed(42)
+                r_1 = np.random.rand()
+                r_2 = np.random.rand()
                 new_vel_x = a * particle.vel_x + b * r_1 * (particle.p_best_x - particle.pos_x) + c * r_2 * (
                         group_best_x - particle.pos_x)
                 new_vel_y = a * particle.vel_y + b * r_1 * (particle.p_best_y - particle.pos_y) + c * r_2 * (
