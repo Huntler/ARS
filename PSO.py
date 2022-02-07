@@ -122,11 +122,12 @@ class Swarm:
         self._plot()
 
         # randomly tune the 'a'
-        if self._a >= 0.4 and np.random.rand() > 0.5:
+        if self._a >= 0.4:
             self._a -= lr
 
         # wait some time
-        time.sleep(self._time)
+        if self._time != 0:
+            time.sleep(self._time)
     
     def _plot(self):
         for i in range(len(self._history)-1, 0, -1):

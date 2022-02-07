@@ -71,7 +71,7 @@ swarm = Swarm(20, params=[0.9, 2, 2], x_range=[x_min, x_max], y_range=[
 
 def update(frame_number):
     ax3d.clear()
-    swarm.update(frame_number)
+    swarm.update(frame_number, lr=0.01)
     ax3d.plot_surface(x, y, z, cmap=cm.coolwarm, alpha=0.3, linewidth=0, antialiased=False)
 
 # show the animation and run the simulation using swarm.update
