@@ -6,6 +6,10 @@ import matplotlib.animation as animation
 
 from benchmark_functions import rosenbrock, rastrigin
 
+from PSO import PSO
+
+PSO(1, 2, 1, 20, 20, rosenbrock)
+
 # Fixing random state for reproducibility
 np.random.seed(19680801)
 
@@ -34,13 +38,13 @@ ax2d.imshow(z, cmap=cm.coolwarm)
 
 # plot the 3d plane
 ax3d = fig.add_subplot(1, 2, 2, projection='3d')
-ax3d.set_xlim3d(x_min, x_max) 
-ax3d.set_ylim3d(y_min, y_max) 
-ax3d.set_zlim3d(z_min, z_max) 
+ax3d.set_xlim3d(x_min, x_max)
+ax3d.set_ylim3d(y_min, y_max)
+ax3d.set_zlim3d(z_min, z_max)
 
 # plot the fitness function
 surf = ax3d.plot_surface(x, y, z, cmap=cm.coolwarm,
-                       linewidth=0, antialiased=False)
+                         linewidth=0, antialiased=False)
 fig.colorbar(surf, shrink=0.5, aspect=5)
 
 # Rotate the axes and update
